@@ -1,0 +1,21 @@
+apiVersion: telemetry.istio.io/v1
+kind: Telemetry
+metadata:
+  name: default
+  namespace: istio-system
+spec:
+  accessLogging:
+    - providers:
+        - name: envoy
+  metrics:
+    - overrides:
+        - disabled: false
+      providers:
+        - name: prometheus
+  tracing:
+    - providers:
+        - name: zipkin
+      randomSamplingPercentage: 100
+    - providers:
+        - name: otel
+      randomSamplingPercentage: 100

@@ -1,0 +1,34 @@
+apiVersion: maistra.io/v2
+kind: ServiceMeshControlPlane
+metadata:
+  name: basic
+  namespace: istio-system
+spec:
+  addons:
+    grafana:
+      enabled: true
+    kiali:
+      enabled: true
+    prometheus:
+      enabled: true
+  gateways:
+    openshiftRoute:
+      enabled: false
+  mode: ClusterWide
+  policy:
+    type: Istiod
+  profiles:
+    - default
+  telemetry:
+    type: Istiod
+  tracing:
+    type: None
+  version: v2.6
+  meshConfig:
+    extensionProviders:
+      opentelemetry:
+        port: 4317
+        service: user-collector.istio-system.svc.cluster.local
+      zipkin:
+        port: 9411
+        service: user-collector.istio-system.svc.cluster.local
