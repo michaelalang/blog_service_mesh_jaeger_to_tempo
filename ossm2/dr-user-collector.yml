@@ -1,0 +1,10 @@
+apiVersion: networking.istio.io/v1
+kind: DestinationRule
+metadata:
+  name: user-collector
+  namespace: istio-system
+spec:
+  host: user-collector.istio-system.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: DISABLE

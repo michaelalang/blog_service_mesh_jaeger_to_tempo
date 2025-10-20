@@ -70,7 +70,6 @@ spec:
         traces/jaeger-tempo:
           exporters:
             - otlp/jaeger
-            - spanmetrics
           processors:
             - k8sattributes
             - probabilistic_sampler/jaeger
