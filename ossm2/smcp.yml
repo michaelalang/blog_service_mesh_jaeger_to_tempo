@@ -26,9 +26,11 @@ spec:
   version: v2.6
   meshConfig:
     extensionProviders:
+    - name: otel
       opentelemetry:
         port: 4317
         service: user-collector.istio-system.svc.cluster.local
+    - name: zipkin
       zipkin:
         port: 9411
         service: user-collector.istio-system.svc.cluster.local
