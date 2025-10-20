@@ -11,6 +11,8 @@ spec:
       enabled: true
     prometheus:
       enabled: true
+  security:
+    manageNetworkPolicy: false
   gateways:
     openshiftRoute:
       enabled: false
@@ -25,6 +27,12 @@ spec:
     type: None
   version: v2.6
   meshConfig:
+    discoverySelectors:
+      - matchExpressions:
+          - key: maistra.io/member-of
+            operator: Exists
+          - key: istio.io/rev
+            operator: DoesNotExist
     extensionProviders:
     - name: otel
       opentelemetry:
