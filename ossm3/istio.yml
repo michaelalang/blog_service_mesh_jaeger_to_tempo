@@ -26,6 +26,10 @@ spec:
           opentelemetry:
             port: 4317
             service: user-collector.istio-system.svc.cluster.local
+        - name: zipkin
+          zipkin:
+            port: 9411
+            service: user-collector.istio-system.svc.cluster.local
     telemetry:
       enabled: true
       v2:
