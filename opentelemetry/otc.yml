@@ -16,7 +16,7 @@ spec:
       otlp/tempo:
         auth:
           authenticator: bearertokenauth
-        endpoint: tempo-gateway.tempo.svc.cluster.local:8090
+        endpoint: tempo-tempo-gateway.tempo.svc.cluster.local:8090
         headers:
           X-Scope-OrgID: user
         sending_queue:
